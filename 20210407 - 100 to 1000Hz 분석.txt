@@ -1,0 +1,3 @@
+view and edit 눌러서 봤는데 
+spectrogram에서 보니까 파란줄 쳐진 부분, 즉 pitch 가 100Hz였다.
+따라서 내가 amplittude를 0.5씩 줄이면서 100Hz 부터 1000Hz 까지의 소리를 모두 합쳤음에도 불구하고 사람의 귀에 들리는 소리는 100Hz, (Fundamental frequency)인 것이다. 
