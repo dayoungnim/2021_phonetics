@@ -1,0 +1,94 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled11.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyMPR2Bg14xLkLQC3XvJH3cD",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/dayoungnim/class2021Spring/blob/main/20210426_phasor%ED%95%A8%EC%88%98%EB%A7%8C%EB%93%A4%EA%B8%B0\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IcSgXBl2xlLb"
+      },
+      "source": [
+        "%matplotlib inline\n",
+        "from matplotlib import pyplot as plt\n",
+        "import IPython.display as ipd\n",
+        "import numpy as np\n",
+        "from scipy.signal import lfilter"
+      ],
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "DuJ0KP9kn2P6"
+      },
+      "source": [
+        "def phasor (amp, sr, dur, freq):\n",
+        "  t = np.arange(1, sr * dur+1)/sr \n",
+        "  theta = t * 2*np.pi * freq\n",
+        "  s = np.sin(theta)\n",
+        "  return s,theta,t"
+      ],
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PWYRiRxqxxpC",
+        "outputId": "e597f14a-e340-40c3-8563-448f180c4afa"
+      },
+      "source": [
+        "phasor(1,10000,0.5,200.0)"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(array([ 1.25333234e-01,  2.48689887e-01,  3.68124553e-01, ...,\n",
+              "        -2.48689887e-01, -1.25333234e-01,  3.92877345e-15]),\n",
+              " array([1.25663706e-01, 2.51327412e-01, 3.76991118e-01, ...,\n",
+              "        6.28067203e+02, 6.28192867e+02, 6.28318531e+02]),\n",
+              " array([1.000e-04, 2.000e-04, 3.000e-04, ..., 4.998e-01, 4.999e-01,\n",
+              "        5.000e-01]))"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    }
+  ]
+}
